@@ -1,0 +1,29 @@
+.side-bar__header {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+    min-height: 66px;
+    justify-content: space-between;
+
+    padding: 8px;
+}
+.side-bar__header > div {
+    display: flex;
+    align-items: center;
+}
+.side-bar__title {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.side-bar__img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.side-bar__header-icon {
+    cursor: pointer;
+}

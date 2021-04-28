@@ -1,0 +1,18 @@
+.side-bar__search {
+    font-size: 21.5px;
+    position: relative;
+    margin: 10px 0;
+    color: white;
+
+    min-height: 38.8px;
+}
+.side-bar__search-icon {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.inputCpn--side-bar {
+    padding-left: 38.5px;
+    background-color: rgb(3, 29, 85);
+    color: white;
+}

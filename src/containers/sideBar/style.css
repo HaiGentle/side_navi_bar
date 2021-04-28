@@ -1,0 +1,9 @@
+.side-bar {
+    width: 50px;
+    background-color: black;
+    height: 100vh;
+
+    padding: 0 5px;
+    position: relative;
+    transition: all 300ms;
+}
