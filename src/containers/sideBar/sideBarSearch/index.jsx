@@ -1,10 +1,10 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import InputCpn from '../../../components/inputCpn';
+import Input from '../../../components/Input';
 import './style.css'
 
 
-export default function SideBarSearchContain(props) {
+export default function SideBarSearch(props) {
     const {icon, placeholder, isOpen, handleOnClickInput} = props;
     
     return (
@@ -16,10 +16,11 @@ export default function SideBarSearchContain(props) {
             >
                 <FontAwesomeIcon icon={icon}/>
             </div>
-            {isOpen && <InputCpn 
+            <Input
                 placeholder={placeholder}
-                classModifier=" inputCpn--side-bar"
-            />}
+                classModifier="cpn-input--side-bar"
+                style={{display: !isOpen && "none"}}
+            />
         </div>
     )
 }

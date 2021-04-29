@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import './style.css'
 import avt from '../../logo.svg'
 import { faThLarge, faSearch, faSignOutAlt, faBars, faUser, faCommentAlt, faChartPie, faFolder, faShoppingCart, faHeart, faCog } from '@fortawesome/free-solid-svg-icons'
-import SideBarItemsCpn from '../../components/sideBarItemsCpn'
-import SideBarSearchContain from './sideBarSearch'
-import SideBarLogoutCpn from './sideBarLogout'
-import SideBarHeaderContain from './sideBarHeader'
+import SideBarItems from '../../components/SideBarItems'
+import SideBarSearch from './sideBarSearch'
+import SideBarLogout from './sideBarLogout'
+import {SideBarHeader} from './sideBarHeader'
 
 const data = [
     { id: "001", text: "DashBoard", icon: faThLarge },
@@ -19,43 +19,45 @@ const data = [
 ]
 
 export default function SideBarContainer() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [state, setState] = useState({
+        sideBarOpen: false
+    });
 
     const handleOnClickButtonHeader = () => {
-        setIsOpen(prev => !prev);
+        setState(prev => ({...prev, sideBarOpen: !prev.sideBarOpen}));
     }
     const handleOnClickInput = () => {
-        setIsOpen(() => true);
+        setState(prev => ({...prev, sideBarOpen: true}));
     }
 
     return (
-        <div className="side-bar" style={{ width: isOpen && "200px" }}>
-            <SideBarHeaderContain
+        <div className="side-bar" style={{ width: state.sideBarOpen && "200px" }}>
+            <SideBarHeader
                 icon={faBars}
                 title="VC-Team"
                 img={avt}
-                isOpen={isOpen}
+                isOpen={state.sideBarOpen}
                 handleOnClickButtonHeader={handleOnClickButtonHeader}
             />
-            <SideBarSearchContain
+            <SideBarSearch
                 icon={faSearch}
                 placeholder="Search..."
-                isOpen={isOpen}
+                isOpen={state.sideBarOpen}
                 handleOnClickInput={handleOnClickInput}
             />
             {data.map(item => (
-                <SideBarItemsCpn
+                <SideBarItems
                     key={item.id}
                     text={item.text}
                     icon={item.icon}
-                    isOpen={isOpen}
+                    isOpen={state.sideBarOpen}
                 />
             ))}
-            <SideBarLogoutCpn
+            <SideBarLogout
                 avt={avt}
                 name="Hai's Gentle"
                 icon={faSignOutAlt}
-                isOpen={isOpen}
+                isOpen={state.sideBarOpen}
             />
         </div>
     )
